@@ -1,0 +1,60 @@
+---Let's start Server
+	Server started at address :  http://127.0.0.1:5000/
+	
+	Let's load landing page of website
+	But before that I'll give you idea about the website
+	
+	Idea: BAsed on the patient's history record, system will tell diet plan.. so let's go on and start the demo
+	
+	this is landing page
+	
+	1. We'll start with exception, i.e patient who is not their in files/databases
+	
+	Name :aaxcv, aqwer
+
+    Ideal output : No records are founds
+    Output : No records found
+Matches the expected
+
+2. Let's try some existing patient
+   Name : Keith Gay Marshall
+   Output : Record found 
+   Actual output : Date of visit was old, so system didn't suggest any particular diet
+                   Cool!
+
+3. Let's try someone who might need diet ..
+   Name  : Dolores Marshall
+   Output : diet suggested
+  Actual output : All of her visit were because of some allergies
+           So system suggests to avoid eating allergy causing agents
+
+4. Let's try one more
+   Name : Jacqueline Spears Waller
+   output : Diet suggested
+   Actual output : Even Jacqueline was allergic to something whne she was treated
+            so System suggested to avoid eating allergy casusing agents
+
+5. Let's try some healthy patient
+
+Name :  Lorenzo, Hector  i liked this name :D
+  Output : No records found as this patient is healthy
+  Actual output: Wooh ! He is healthy --> No records founds
+  
+  System can suggest 9 such diets but due to limit on time couldn't explore more patients
+ As database is still under construction
+
+But Let me show you all categories system looks for so far 
+ 9 like I said before
+ 
+This concludes this demo
+
+I used Following API for this projects : 52.200.214.141:8080/fhir/baseDstu3
+provided by NJII
+
+Thank you
+ 
+ 
+   
+	
+	
+	
