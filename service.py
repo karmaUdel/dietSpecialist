@@ -204,7 +204,7 @@ def getDiet(conditions):
             str +="Muscle Strain, Stress :Drink lot of fluids, other than this you can enjoy everything you like\n"
     if str == "":
         opening = "\n"
-        str = "You seem absolutely healthy, you don't have to worry about diet!!\n Eat fresh and stay healthy!"
+        str = "You seem absolutely healthy, you don't have to worry about diet!! Eat fresh and stay healthy!"
     str = opening + str
     return str        			
 	
