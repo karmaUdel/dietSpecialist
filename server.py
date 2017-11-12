@@ -1,8 +1,8 @@
 from flask import Flask, render_template,request
 from service import generateResponse
 app = Flask(__name__)
-boilerplateHead = "<html><style>tr:nth-child(even) {color:red;background: #CCC} tr:nth-child(odd) {color:blue;background: #FFF}</style><body style = \"text-align:center; background-color:black; font-size: 30px;\"> <table style = \"text-align:center; margin:1em auto;\"><tr><td style=\"font-size:30px\">"
-boilerplateTail = "</td></tr></table><a href =\"/\">Home</a></body></html>"
+boilerplateHead = "<html><title>Report</title><style>tr:nth-child(even) {color:Red;background: white} tr:nth-child(odd) {color:blue;background: black}</style><body style = \"text-align:center; background-color:black; font-size: 30px;\"> <p style=\"color:yellow\">Report</p><table style = \"text-align:center; margin:1em auto;\"><tr><td style=\"font-size:30px\">"
+boilerplateTail = "</td></tr></table><a href =\"/\" style=\"color:yellow\"><img src=\"templates/home.jpg\" alt=\"home\" width=\"100\" height=\"50\"></a></body></html>"
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
