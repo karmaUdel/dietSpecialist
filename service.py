@@ -12,9 +12,9 @@ API connectivity tester
 '''
 def callAPI(firstName,lastName):
     #get Named response
-    name = lastName
+    name = firstName
     if name == None:
-        name = firstName
+        name = lastName
     if name == None:
         name = ""
         return 0 #empty name is invalid query so exit abruptly
@@ -25,8 +25,9 @@ def callAPI(firstName,lastName):
     if patient != 0 :
         print(len(patient))
         print(patient[0])
-        for i in range(0, len(patient)-1):
-            if name == patient[i][5] and firstName == patient[i][6]:
+        for i in range(0, len(patient)):
+            print(patient[i])
+            if lastName == patient[i][5] and name == patient[i][6]:
                 encounter = getEncounter("Encounter?patient:reference=Patient/"+patient[i][0])
                 print(encounter)# call Encounter API
                 if encounter !=0 :
@@ -90,7 +91,7 @@ def getNameResponse(name):
             print(data["entry"][5]["resource"]["address"][0]["line"][0]+ ", "+data["entry"][0]["resource"]["address"][0]["city"] +data["entry"][0]["resource"]["address"][0]["state"] +", "+data["entry"][0]["resource"]["address"][0]["postalCode"])
             print(data["entry"][0]["resource"]["name"][0]["family"]) # family name
             print(data["entry"][0]["resource"]["name"][0]["given"][0]) #first Name
-            for i in range(0, len(data["entry"] )-1):
+            for i in range(0, len(data["entry"] )):
                 x = []
                 x.append(data["entry"][i]["resource"]["id"])
                 x.append(data["entry"][i]["resource"]["telecom"][0]["value"])
@@ -180,28 +181,28 @@ def getCondition(ID):
 
 	
 def getDiet(conditions):
-    opening = "Your Diet Should include"
+    opening = ""
     str = ""
     condition = list(set(conditions))
     for i in range(0, len(condition)):
         if "diabetes" in condition[i].lower():
-            str += "Diabetes : Lite bite, Salads, leafy Vegetables. \nAvoid To much sweet, soda, alcohol, starchy and oily food\n"
+            str += "Diabetes : Lite bite, Salads, leafy Vegetables. Avoid To much sweet, soda, alcohol, starchy and oily food"
         if "sinusitis" in condition[i].lower():
-            str += "Sinusitis : Foods rich in Vitamin C, Spinach, beets, rich in Vitamin A, like Carrots, purslane, pumpkin\nRich in Vitamin B, E like Rice, Wheat, oats, Olive oil sunflower seeds for Vitamin E.\n"
+            str += "Sinusitis : Foods rich in Vitamin C, Spinach, beets, rich in Vitamin A, like Carrots, purslane, pumpkin Rich in Vitamin B, E like Rice, Wheat, oats, Olive oil sunflower seeds for Vitamin E."
         if "pharyngitis" in condition[i].lower():
-            str += "Pharyngitis : Drinking large amounts of fluid is recommended. No specific dietary restrictions are needed. Soft, cold foods (eg, ice cream, popsicles) are more easily tolerated. \n"
+            str += "Pharyngitis : Drinking large amounts of fluid is recommended. No specific dietary restrictions are needed. Soft, cold foods (eg, ice cream, popsicles) are more easily tolerated. "
         if "allergic" in condition[i].lower():
-            str += "Allergies : Avoid food that causes allergies, everything else you can consume. \n"
+            str += "Allergies : Avoid food that causes allergies, everything else you can consume. "
         if "burn" in condition[i].lower():
-            str += "Burn : Avoid Eating salty Food.\n"
+            str += "Burn : Avoid Eating salty Food."
         if "laceration " in condition[i].lower():
-            str +="Laceration : Continue consuming the food which you regulary consume.\n"
+            str +="Laceration : Continue consuming the food which you regulary consume."
         if "heart" in condition[i].lower():
-            str +="Heart Issues : Avoid oily, spicy and fatty food. Consume green vegetables is good for you, Decrease amount meat per meal. It is good habit to eat oats in heart issues\n"
+            str +="Heart Issues : Avoid oily, spicy and fatty food. Consume green vegetables is good for you, Decrease amount meat per meal. It is good habit to eat oats in heart issues"
         if "cold" in condition[i].lower():
-            str +="Cold, Fever, Cough: Drink soups, tea or coffee. It'll keep you relaxed. Drink lot of fluid. Avoid Cold milk, Yogurt and Banana.\n"
+            str +="Cold, Fever, Cough: Drink soups, tea or coffee. It'll keep you relaxed. Drink lot of fluid. Avoid Cold milk, Yogurt and Banana."
         if "strain" in condition[i].lower():
-            str +="Muscle Strain, Stress :Drink lot of fluids, other than this you can enjoy everything you like\n"
+            str +="Muscle Strain, Stress :Drink lot of fluids, other than this you can enjoy everything you like"
     if str == "":
         opening = "\n"
         str = "You seem absolutely healthy, you don't have to worry about diet!! Eat fresh and stay healthy!"
