@@ -3,24 +3,24 @@
 <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="index.js"></script>
-<body style = "text-align:center; font-size: 30px;">
-<form action="/submitForm" >
+<body style = "text-align:center; background-color: black; font-size: 30px; color: yellow;">
+<br>
+<br>
+  <div style="margin:1em auto; border:solid; width: 1000px ;height: 500 px">
+  <form action="/submitForm" >
+  <br>
+  <br>
   <p>Dear Patient,</p>
   <p>Your
-    <label for="firstname">name</label> is
+    <label for="firstname">First name</label> is
     <input type="text" name="firstname" style="width: 300px; heigth: 30px; font-size:30px;" id="firstname" minlength="3" placeholder="(your name here)" required> and</p>
 
   <p>your
     <label for="lastname">Last name</label> is
     <input type="text" name="lastname" style="width: 300px; heigth: 30px; font-size:30px;" id="lastname" placeholder="(your last name)" required>
   </p>
+<br>
 
-  <p> Your Records
-    <label for="your-message">message</label> ,</p>
-
-  <p>
-    <textarea name="x" id="x" placeholder="(your records here)" style="width: 300px; heigth: 30px; font-size:30px;" class="expanding" ></textarea>
-  </p>
   <p>
     <button type="submit">
       <svg version="1.1" class="send-icn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="36px" viewBox="0 0 100 36" enable-background="new 0 0 100 36" xml:space="preserve">
@@ -30,6 +30,8 @@
       <small>send</small>
     </button>
   </p>
+  
 </form>
+</div>
 </body>
 </html>
