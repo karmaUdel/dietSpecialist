@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+Enter the name of the patient:
+<form action="/submitForm">
+  First name:<br>
+  <input id = "firstname" type="text" onkeypress = 'return ((event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 65 && event.charCode <= 90) || event.charcode==127)' name="firstname" value="">
+  <br>
+  Last name:<br>
+  <input id = "lastname" type="text" onkeypress = 'return ((event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 65 && event.charCode <= 90) ||event.charcode==127)' name="lastname" value="">
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click the "Submit" button, You'll see diet for the patient based on history.</p>
+<p>If we couldn't get history of the person then we'll give you general instruction about diet according to age and weight.</p>
+</body>
+</html>
