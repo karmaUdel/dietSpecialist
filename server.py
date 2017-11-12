@@ -1,29 +1,8 @@
 from flask import Flask, render_template,request
 from service import generateResponse
 app = Flask(__name__)
-
-
-from bs4 import BeautifulSoup as Soup
-
-html = """
-<html>
-<head>
-<title>Test Page</title>
-</head>
-<body>
-<div>Your Report</div>
-</html>
-"""
-soup = Soup(html)
-
-title = soup.find('title')
-meta = soup.new_tag('meta')
-meta['content'] = "text/html; charset=UTF-8"
-meta['http-equiv'] = "Content-Type"
-title.insert_after(meta)
-
-print soup
-
+boilerplateHead = "<html><style>tr:nth-child(even) {color:red;background: #CCC} tr:nth-child(odd) {color:blue;background: #FFF}</style><body style = \"text-align:center; background-color:black; font-size: 30px;\"> <table style = \"text-align:center; margin:1em auto;\"><tr><td style=\"font-size:30px\">"
+boilerplateTail = "</td></tr></table></body></html>"
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
@@ -37,7 +16,15 @@ def my_link():
     print(lastName)
     response = generateResponse(firstName,lastName)
     print(response)
-    return response
+    c = response.count("\n")
+    print(c)
+    s = ""
+    #for i in range(0, c-1):
+    s = response.replace("\n","</td></tr><tr><td style=\"font-size:30px\">")
+    response1 = boilerplateHead + s +boilerplateTail
+    print(response1)
+    index = open("templates/index.html").read().format(x=response1)
+    return response1
     
 if __name__ == '__main__':
     app.run(debug=True)

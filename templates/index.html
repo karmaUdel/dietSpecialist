@@ -1,19 +1,35 @@
-<!DOCTYPE html>
 <html>
+<title>Diet Suggestor</title>
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
-<body>
-Enter the name of the patient:
-<form action="/submitForm">
-  First name:<br>
-  <input id = "firstname" type="text" onkeypress = 'return ((event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 65 && event.charCode <= 90) || event.charcode==127)' name="firstname" value="">
-  <br>
-  Last name:<br>
-  <input id = "lastname" type="text" onkeypress = 'return ((event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 65 && event.charCode <= 90) ||event.charcode==127)' name="lastname" value="">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
+<script type="text/javascript" src="index.js"></script>
+<body style = "text-align:center; font-size: 30px;">
+<form action="/submitForm" >
+  <p>Dear Patient,</p>
+  <p>Your
+    <label for="firstname">name</label> is
+    <input type="text" name="firstname" style="width: 300px; heigth: 30px; font-size:30px;" id="firstname" minlength="3" placeholder="(your name here)" required> and</p>
 
-<p>If you click the "Submit" button, You'll see diet for the patient based on history.</p>
-<p>If we couldn't get history of the person then we'll give you general instruction about diet according to age and weight.</p>
+  <p>your
+    <label for="lastname">Last name</label> is
+    <input type="text" name="lastname" style="width: 300px; heigth: 30px; font-size:30px;" id="lastname" placeholder="(your last name)" required>
+  </p>
+
+  <p> Your Records
+    <label for="your-message">message</label> ,</p>
+
+  <p>
+    <textarea name="x" id="x" placeholder="(your records here)" style="width: 300px; heigth: 30px; font-size:30px;" class="expanding" ></textarea>
+  </p>
+  <p>
+    <button type="submit">
+      <svg version="1.1" class="send-icn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="36px" viewBox="0 0 100 36" enable-background="new 0 0 100 36" xml:space="preserve">
+        <path d="M100,0L100,0 M23.8,7.1L100,0L40.9,36l-4.7-7.5L22,34.8l-4-11L0,30.5L16.4,8.7l5.4,15L23,7L23.8,7.1z M16.8,20.4l-1.5-4.3
+	l-5.1,6.7L16.8,20.4z M34.4,25.4l-8.1-13.1L25,29.6L34.4,25.4z M35.2,13.2l8.1,13.1L70,9.9L35.2,13.2z" />
+      </svg>
+      <small>send</small>
+    </button>
+  </p>
+</form>
 </body>
 </html>
